@@ -8,13 +8,14 @@ var port = process.env.PORT || 8080;
 // immediate abuse (e.g. denial of service). If you want to block all origins except for some,
 // use originWhitelist instead.
 var originBlacklist = parseEnvList(process.env.CORSANYWHERE_BLACKLIST);
-var originWhitelist = parseEnvList(process.env.CORSANYWHERE_WHITELIST);
+// var originWhitelist = parseEnvList(process.env.CORSANYWHERE_WHITELIST);
 function parseEnvList(env) {
   if (!env) {
     return [];
   }
   return env.split(',');
 }
+var originWhitelist = ['https://local.teams.office.com:8080'];
 
 // Set up rate-limiting to avoid abuse of the public CORS Anywhere server.
 var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELIMIT);
