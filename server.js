@@ -15,7 +15,7 @@ function parseEnvList(env) {
   }
   return env.split(',');
 }
-var originWhitelist = ['https://local.teams.office.com:8080'];
+var originWhitelist = [];
 
 // Set up rate-limiting to avoid abuse of the public CORS Anywhere server.
 var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELIMIT);
